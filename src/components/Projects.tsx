@@ -23,7 +23,7 @@ export default function Projects() {
         "GCP",
         "TypeScript",
       ],
-      link: "https://github.com/yourusername/groope",
+      link: "https://groope.app",
       bgPattern: "/groope.svg",
     },
     {
@@ -41,7 +41,7 @@ export default function Projects() {
         "next-intl",
         "TailwindCSS",
       ],
-      link: "https://github.com/yourusername/cb-shop",
+      link: "https://www.lojacbshop.com.br",
       bgPattern: "/cbshop.svg",
     },
     {
@@ -49,7 +49,7 @@ export default function Projects() {
       description:
         "Interactive website featuring advanced animations and visual effects. Implemented custom particle systems and smooth transitions for an engaging user experience.",
       technologies: ["Three.js", "Framer Motion", "React", "TypeScript"],
-      link: "https://github.com/yourusername/solarium",
+      link: "https://www.vitrastudios.com",
       bgPattern: "/solarium.png",
     },
     {
@@ -57,7 +57,7 @@ export default function Projects() {
       description:
         "Landing page development with modern design and CMS integration. Built scalable microservices-based APIs using Strapi CMS for content management.",
       technologies: ["React", "Strapi CMS", "Node.js", "TailwindCSS"],
-      link: "https://github.com/yourusername/bsb-vistos",
+      link: "https://www.bsbvistos.com.br",
       bgPattern: "/bsbvistos.svg",
     },
   ];

@@ -25,7 +25,7 @@ export default function Hero() {
           <h1 className="text-5xl sm:text-6xl font-bold mb-4 tracking-tight">
             Hello, I&apos;m{" "}
             <span className="inline-block">
-              <span className="inline-block w-[250px] animate-[typing_2s_steps(20)_forwards] overflow-hidden whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-purple-400">
+              <span className="w-[250px] animate-[typing_2s_steps(20)_forwards] overflow-hidden whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-purple-400">
                 Vitor Dias
               </span>
             </span>

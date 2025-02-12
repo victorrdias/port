@@ -14,3 +14,44 @@ body {
   background: rgb(var(--background-rgb));
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom Scrollbar Styles */
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.6); /* Purple-600 with opacity */
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(109, 40, 217, 0.8); /* Purple-700 with opacity */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(124, 58, 237, 0.6) rgba(255, 255, 255, 0.8);
+}
+
+/* Remove default scrollbar */
+@media screen and (min-width: 768px) {
+  body {
+    -ms-overflow-style: auto; /* IE and Edge */
+    scrollbar-width: auto; /* Firefox */
+  }
+
+  body::-webkit-scrollbar {
+    display: block; /* Chrome, Safari and Opera */
+  }
+}

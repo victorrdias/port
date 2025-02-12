@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { scrollToElement } from "@/utils/scroll";
+import { useState } from "react";
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-4">
@@ -23,7 +23,7 @@ export default function Hero() {
           className="mb-8"
         >
           <h1 className="text-5xl sm:text-6xl font-bold mb-4 tracking-tight">
-            Hello, I'm{" "}
+            Hello, I&apos;m{" "}
             <span className="inline-block">
               <span className="inline-block w-[250px] animate-[typing_2s_steps(20)_forwards] overflow-hidden whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-purple-400">
                 Vitor Dias
@@ -47,32 +47,63 @@ export default function Hero() {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 w-full justify-center items-center"
         >
-          <Link
-            href="/curriculo-en.pdf"
-            className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white bg-purple-600 rounded-lg transition-all duration-300 
-              hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/25 transform hover:-translate-y-1"
-            target="_blank"
-          >
-            <span className="relative z-10 flex items-center">
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              View My Resume
-            </span>
-          </Link>
+          <div className="relative">
+            <button
+              onClick={() => setIsResumeOpen(!isResumeOpen)}
+              className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white bg-purple-600 rounded-lg transition-all duration-300 
+                hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/25 transform hover:-translate-y-1"
+            >
+              <span className="relative z-10 flex items-center">
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+                View My Resume
+              </span>
+            </button>
+
+            {isResumeOpen && (
+              <div className="absolute z-50 mt-2 w-[225px] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                <div
+                  className="py-1"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu"
+                >
+                  <Link
+                    href="/curriculo-pt.pdf"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600"
+                    role="menuitem"
+                    target="_blank"
+                    onClick={() => setIsResumeOpen(false)}
+                  >
+                    Português (BR)
+                  </Link>
+                  <Link
+                    href="/curriculo-en.pdf"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600"
+                    role="menuitem"
+                    target="_blank"
+                    onClick={() => setIsResumeOpen(false)}
+                  >
+                    English
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
 
           <button
-            onClick={scrollToProjects}
+            onClick={() => scrollToElement("about")}
             className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-purple-600 border-2 border-purple-600 rounded-lg transition-all duration-300
               hover:bg-purple-50 hover:shadow-lg hover:shadow-purple-500/10 transform hover:-translate-y-1"
           >
@@ -110,7 +141,7 @@ export default function Hero() {
             repeatType: "reverse",
           }}
           className="cursor-pointer"
-          onClick={scrollToProjects}
+          onClick={() => scrollToElement("about")}
         >
           <svg
             className="w-6 h-6 text-purple-600 hover:text-purple-700 transition-colors"

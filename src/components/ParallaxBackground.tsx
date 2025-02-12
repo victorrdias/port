@@ -60,10 +60,10 @@ export default function ParallaxBackground() {
         }}
         className="absolute inset-0 z-0"
       >
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/30 to-transparent"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff0f_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0f_1px,transparent_1px)] bg-[size:24px_24px]">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-100/30 dark:via-zinc-800/40 to-transparent"></div>
         </div>
-        <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent"></div>
+        <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-200 dark:via-purple-800 to-transparent"></div>
       </motion.div>
     </div>
   );

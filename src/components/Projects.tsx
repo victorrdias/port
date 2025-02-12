@@ -64,12 +64,12 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-16">
-      <h2 className="text-3xl font-bold mb-8">My Projects</h2>
+      <h2 className="text-3xl font-bold mb-8 dark:text-white">My Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="border border-purple-200 rounded-lg p-6 hover:shadow-lg transition-shadow bg-white relative overflow-hidden group"
+            className="border border-purple-200 dark:border-[#2d2b3b] rounded-lg p-6 hover:shadow-lg transition-shadow bg-white dark:bg-[#13111b]/90 relative overflow-hidden group"
           >
             <div
               className="absolute inset-0"
@@ -85,22 +85,21 @@ export default function Projects() {
                       project.title === "Solarium"
                     ? "150px"
                     : "auto",
-                opacity:
-                  project.title === "CB Shop" || project.title === "Solarium"
-                    ? 0.1
-                    : 0.03,
+                opacity: project.title === "CB Shop" ? 0.3 : 0.05,
               }}
             />
             <div className="relative z-10">
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="mb-4 min-h-[150px] text-gray-600">
+              <h3 className="text-xl font-bold mb-2 dark:text-white">
+                {project.title}
+              </h3>
+              <p className="mb-4 min-h-[150px] text-gray-600 dark:text-gray-300">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, i) => (
                   <span
                     key={i}
-                    className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm"
+                    className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm"
                   >
                     {tech}
                   </span>
@@ -110,7 +109,7 @@ export default function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-purple-600 hover:text-purple-800 inline-flex items-center"
+                className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 inline-flex items-center"
               >
                 View Project
                 <svg

@@ -3,8 +3,8 @@
 export default function About() {
   return (
     <section id="about" className="py-20">
-      <h2 className="text-3xl font-bold mb-8">About Me</h2>
-      <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+      <h2 className="text-3xl font-bold mb-8 dark:text-white">About Me</h2>
+      <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
         <p>
           Software developer specialized in building scalable web applications
           with Next.js, TypeScript, Firebase, Supabase, Node.js, Google Cloud

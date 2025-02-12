@@ -31,7 +31,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative mt-20 border-t bg-white shadow-lg">
+    <footer className="relative mt-20 border-t bg-white dark:bg-[#13111b]/90 shadow-lg dark:border-[#2d2b3b]">
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ export default function Footer() {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-purple-600 transition-colors"
+              className="text-gray-600 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors"
             >
               <span className="sr-only">{item.name}</span>
               {item.icon}
@@ -60,12 +60,12 @@ export default function Footer() {
           viewport={{ once: true }}
           className="mt-8 md:order-1 md:mt-0"
         >
-          <p className="text-center text-sm leading-5 text-gray-500">
+          <p className="text-center text-sm leading-5 text-gray-500 dark:text-gray-400">
             &copy; {currentYear} Vitor Dias. All rights reserved.
           </p>
         </motion.div>
       </div>
-      <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent"></div>
+      <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-purple-200 dark:via-purple-800 to-transparent"></div>
     </footer>
   );
 }

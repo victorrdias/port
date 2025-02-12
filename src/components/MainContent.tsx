@@ -1,14 +1,14 @@
 "use client";
+
 import React from "react";
-import About from "@/components/About";
-import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
-import ParallaxBackground from "@/components/ParallaxBackground";
-import Footer from "@/components/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-export default function Home() {
+export default function MainContent({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const mainRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: mainRef,
@@ -19,8 +19,7 @@ export default function Home() {
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
 
   return (
-    <main ref={mainRef} className="relative min-h-screen">
-      <ParallaxBackground />
+    <>
       <motion.div className="relative" style={{ opacity, scale }}>
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -29,7 +28,7 @@ export default function Home() {
           <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-purple-200 to-purple-300 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
         </div>
 
-        <Hero />
+        {children}
 
         <div
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
@@ -52,12 +51,7 @@ export default function Home() {
         >
           <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-purple-300 to-purple-400 opacity-10 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
         </div>
-
-        <About />
-        <Projects />
       </motion.div>
-
-      <Footer />
-    </main>
+    </>
   );
 }

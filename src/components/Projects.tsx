@@ -42,9 +42,7 @@ export default function Projects() {
         "TailwindCSS",
       ],
       link: "https://github.com/yourusername/cb-shop",
-      bgPattern: `data:image/svg+xml,${encodeURIComponent(
-        '<svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="80" height="80" stroke="#8B5CF6" stroke-width="1" fill="none" opacity="0.03"/></svg>'
-      )}`,
+      bgPattern: "/cbshop.svg",
     },
     {
       title: "Solarium",
@@ -52,9 +50,7 @@ export default function Projects() {
         "Interactive website featuring advanced animations and visual effects. Implemented custom particle systems and smooth transitions for an engaging user experience.",
       technologies: ["Three.js", "Framer Motion", "React", "TypeScript"],
       link: "https://github.com/yourusername/solarium",
-      bgPattern: `data:image/svg+xml,${encodeURIComponent(
-        '<svg width="60" height="60" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10 50 Q 50 10 90 50 Q 50 90 10 50" stroke="#8B5CF6" stroke-width="1" fill="none" opacity="0.03"/></svg>'
-      )}`,
+      bgPattern: "/solarium.png",
     },
     {
       title: "BSB Vistos",
@@ -79,14 +75,20 @@ export default function Projects() {
               className="absolute inset-0"
               style={{
                 backgroundImage: `url("${project.bgPattern}")`,
-                backgroundRepeat: "repeat",
+                backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
                 backgroundSize:
                   project.title === "Groope app" ||
                   project.title === "BSB Vistos"
                     ? "200px"
+                    : project.title === "CB Shop" ||
+                      project.title === "Solarium"
+                    ? "150px"
                     : "auto",
-                opacity: 0.03,
+                opacity:
+                  project.title === "CB Shop" || project.title === "Solarium"
+                    ? 0.1
+                    : 0.03,
               }}
             />
             <div className="relative z-10">

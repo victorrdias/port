@@ -13,7 +13,6 @@ const nextConfig = {
   },
   transpilePackages: ["three", "@react-three/fiber", "@react-three/drei"],
   experimental: {
-    optimizeCss: true, // Enable CSS optimization
     optimizePackageImports: ["@react-three/drei", "@react-three/fiber"],
   },
 };

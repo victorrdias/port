@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 type ThemeContextType = {
   isDarkMode: boolean;
@@ -11,8 +11,10 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     // Check if user has dark mode preference, default to true if not set
     const storedPreference = localStorage.getItem("darkMode");
     const isDark =
@@ -35,6 +37,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       return newValue;
     });
   };
+
+  // Prevent hydration issues by not rendering until mounted
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>

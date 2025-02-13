@@ -4,9 +4,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { scrollToElement } from "@/utils/scroll";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const t = useTranslations();
 
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-4">
@@ -23,10 +25,10 @@ export default function Hero() {
           className="mb-8"
         >
           <h1 className="text-5xl sm:text-6xl font-bold mb-4 tracking-tight">
-            Hello, I&apos;m{" "}
+            {t("hero.greeting")}{" "}
             <span className="inline-block">
               <span className="w-[250px] animate-[typing_2s_steps(20)_forwards] overflow-hidden whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-purple-400">
-                Vitor Dias
+                {t("hero.name")}
               </span>
             </span>
           </h1>
@@ -36,7 +38,7 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Full Stack Developer | Problem Solver | Tech Enthusiast | Musician
+              {t("hero.subtitle")}
             </p>
           </motion.div>
         </motion.div>
@@ -67,7 +69,7 @@ export default function Hero() {
                     d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                   />
                 </svg>
-                View My Resume
+                {t("navigation.resume")}
               </span>
             </button>
 
@@ -86,7 +88,7 @@ export default function Hero() {
                     target="_blank"
                     onClick={() => setIsResumeOpen(false)}
                   >
-                    Português (BR)
+                    {t("resume.portuguese")}
                   </Link>
                   <Link
                     href="/curriculo-en.pdf"
@@ -95,7 +97,7 @@ export default function Hero() {
                     target="_blank"
                     onClick={() => setIsResumeOpen(false)}
                   >
-                    English
+                    {t("resume.english")}
                   </Link>
                 </div>
               </div>
@@ -121,7 +123,7 @@ export default function Hero() {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-              View Projects
+              {t("navigation.projects")}
             </span>
           </button>
         </motion.div>

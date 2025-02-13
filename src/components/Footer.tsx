@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations();
 
   const socialLinks = [
     {
@@ -61,7 +63,7 @@ export default function Footer() {
           className="mt-8 md:order-1 md:mt-0"
         >
           <p className="text-center text-sm leading-5 text-gray-500 dark:text-gray-400">
-            &copy; {currentYear} Vitor Dias. All rights reserved.
+            &copy; {currentYear} Vitor Dias. {t("footer.rights")}
           </p>
         </motion.div>
       </div>

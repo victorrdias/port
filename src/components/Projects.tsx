@@ -85,7 +85,7 @@ export default function Projects() {
                       project.title === "Solarium"
                     ? "150px"
                     : "auto",
-                opacity: project.title === "CB Shop" ? 0.3 : 0.05,
+                opacity: project.title === "CB Shop" ? 0.1 : 0.1,
               }}
             />
             <div className="relative z-10">

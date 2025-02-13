@@ -13,4 +13,9 @@ const nextConfig = {
   },
 };
 
-export default withNextIntl(nextConfig);
+export default withNextIntl({
+  ...nextConfig,
+  // Specify the locales you want to support
+  locales: ["en", "pt"],
+  defaultLocale: "en",
+});

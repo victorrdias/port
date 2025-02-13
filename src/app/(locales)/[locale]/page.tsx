@@ -1,27 +1,14 @@
-"use client";
-import React from "react";
 import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import Footer from "@/components/Footer";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 
 export default function LocalizedPage() {
-  const mainRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: mainRef,
-    offset: ["start start", "end end"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
-
   return (
-    <main ref={mainRef} className="relative min-h-screen">
+    <main className="relative min-h-screen">
       <ParallaxBackground />
-      <motion.div className="relative" style={{ opacity, scale }}>
+      <div className="relative">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
@@ -37,15 +24,9 @@ export default function LocalizedPage() {
         >
           <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-purple-400 to-purple-500 opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"></div>
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
-      >
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
@@ -55,7 +36,7 @@ export default function LocalizedPage() {
 
         <About />
         <Projects />
-      </motion.div>
+      </div>
 
       <Footer />
     </main>

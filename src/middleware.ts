@@ -1,4 +1,5 @@
 import createMiddleware from "next-intl/middleware";
+import { locales } from "./i18n";
 
 export default createMiddleware({
   // A list of all locales that are supported
@@ -6,6 +7,9 @@ export default createMiddleware({
 
   // Used when no locale matches
   defaultLocale: "en",
+
+  // Enable static rendering
+  localePrefix: "always",
 
   // Domains can be used to host different languages on different domains
   // domains: [

@@ -11,11 +11,11 @@ const nextConfig = {
     });
     return config;
   },
+  transpilePackages: ["three", "@react-three/fiber", "@react-three/drei"],
+  experimental: {
+    optimizeCss: true, // Enable CSS optimization
+    optimizePackageImports: ["@react-three/drei", "@react-three/fiber"],
+  },
 };
 
-export default withNextIntl({
-  ...nextConfig,
-  // Specify the locales you want to support
-  locales: ["en", "pt"],
-  defaultLocale: "en",
-});
+export default withNextIntl(nextConfig);

@@ -18,6 +18,7 @@ export default {
       "Experienced in implementing robust permission systems, managing complex database schemas, and enhancing user interfaces with various tools.",
     description3:
       "Skilled in collaborating in dynamic teams to deliver high-quality solutions.",
+    techStack: "My Tech Stack",
   },
   projects: {
     title: "Projects",

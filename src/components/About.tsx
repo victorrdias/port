@@ -1,6 +1,11 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
+
+const TechStackScene = dynamic(() => import("./TechStackScene"), {
+  ssr: false,
+});
 
 export default function About() {
   const t = useTranslations();
@@ -14,6 +19,13 @@ export default function About() {
         <p>{t("about.description1")}</p>
         <p>{t("about.description2")}</p>
         <p>{t("about.description3")}</p>
+      </div>
+
+      <div className="mt-12">
+        <h3 className="text-2xl font-bold mb-6 dark:text-white">
+          {t("about.techStack")}
+        </h3>
+        <TechStackScene />
       </div>
     </section>
   );

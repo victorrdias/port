@@ -18,6 +18,7 @@ export default {
       "Experiente em implementar sistemas robustos de permissões, gerenciar esquemas complexos de banco de dados e aprimorar interfaces de usuário com várias ferramentas.",
     description3:
       "Habilidoso em colaborar em equipes dinâmicas para entregar soluções de alta qualidade.",
+    techStack: "Minhas Tecnologias",
   },
   projects: {
     title: "Projetos",

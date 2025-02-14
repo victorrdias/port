@@ -122,7 +122,7 @@ function Model() {
 
 export default function TechStackScene() {
   return (
-    <div className="min-w-[400px] min-h-[400px] relative">
+    <div className="min-h-[400px] relative">
       <Suspense fallback={<Loader />}>
         <Canvas
           camera={{ position: [0, 0, 8], fov: 50 }}

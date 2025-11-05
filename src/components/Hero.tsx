@@ -91,7 +91,7 @@ export default function Hero() {
                     {t("resume.portuguese")}
                   </Link>
                   <Link
-                    href="/curriculo-en.pdf"
+                    href="/resume-en.pdf"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600"
                     role="menuitem"
                     target="_blank"

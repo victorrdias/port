@@ -10,6 +10,8 @@ interface Experience {
   responsibilities: string[];
   technologies: string[];
   achievement?: string;
+  url?: string;
+  private?: boolean;
 }
 
 export default function Projects() {
@@ -42,6 +44,7 @@ export default function Projects() {
         "Azure",
       ],
       achievement: t("experience.neoris.achievement"),
+      private: true,
     },
     {
       company: "AgileTV",
@@ -56,6 +59,7 @@ export default function Projects() {
         t("experience.agiletv.responsibility5"),
       ],
       technologies: ["Next.js", "React", "Redux", "Redis", "SSR", "TypeScript"],
+      url: "https://www.clarotvmais.com.br/",
     },
     {
       company: "Groope",
@@ -78,6 +82,7 @@ export default function Projects() {
         "CircleCI",
         "TypeScript",
       ],
+      url: "https://groope.app",
     },
     {
       company: "Factree",
@@ -100,6 +105,7 @@ export default function Projects() {
         "PostgreSQL",
         "Supabase",
       ],
+      url: "https://www.lojacbshop.com.br",
     },
   ];
 
@@ -161,6 +167,24 @@ export default function Projects() {
                   {tech}
                 </span>
               ))}
+            </div>
+
+            <div className="mt-4">
+              {experience.url ? (
+                <a
+                  href={experience.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-purple-600 text-white hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                >
+                  {t("projects.viewProject")}
+                  <span aria-hidden>↗</span>
+                </a>
+              ) : experience.private ? (
+                <span className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-200 dark:bg-[#2d2b3b] text-gray-700 dark:text-gray-300">
+                  {t("projects.privateProject")}
+                </span>
+              ) : null}
             </div>
           </div>
         ))}

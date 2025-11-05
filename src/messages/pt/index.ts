@@ -22,6 +22,8 @@ export default {
   },
   projects: {
     title: "Experiência Profissional",
+    viewProject: "Ver projeto",
+    privateProject: "Privado",
   },
   experience: {
     achievementLabel: "Conquista",

@@ -22,6 +22,8 @@ export default {
   },
   projects: {
     title: "Professional Experience",
+    viewProject: "View project",
+    privateProject: "Private",
   },
   experience: {
     achievementLabel: "Key Achievement",

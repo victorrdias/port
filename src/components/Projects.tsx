@@ -1,130 +1,159 @@
 "use client";
 
-interface Project {
-  title: string;
-  description: string;
+import { useTranslations } from "next-intl";
+
+interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  responsibilities: string[];
   technologies: string[];
-  link: string;
-  bgPattern?: string; // SVG pattern for background
+  achievement?: string;
 }
 
 export default function Projects() {
-  const projects: Project[] = [
+  const t = useTranslations();
+
+  const experiences: Experience[] = [
     {
-      title: "Groope app",
-      description:
-        "A modern web application with scalable architecture and high performance. Implemented efficient state management, responsive interfaces, and automated CI/CD pipelines. Utilized monorepo structure and layered design patterns for maintainable code.",
+      company: "NEORIS / EPAM",
+      role: t("experience.neoris.role"),
+      period: "Jun 2025 – Present",
+      location: "Remote",
+      responsibilities: [
+        t("experience.neoris.responsibility1"),
+        t("experience.neoris.responsibility2"),
+        t("experience.neoris.responsibility3"),
+        t("experience.neoris.responsibility4"),
+        t("experience.neoris.responsibility5"),
+        t("experience.neoris.responsibility6"),
+      ],
       technologies: [
         "Next.js",
+        "React",
+        "TypeScript",
+        "Node.js",
+        "CI/CD",
+        "Testing",
+      ],
+      achievement: t("experience.neoris.achievement"),
+    },
+    {
+      company: "AgileTV",
+      role: t("experience.agiletv.role"),
+      period: "Apr 2025 – Jun 2025",
+      location: "Remote",
+      responsibilities: [
+        t("experience.agiletv.responsibility1"),
+        t("experience.agiletv.responsibility2"),
+        t("experience.agiletv.responsibility3"),
+        t("experience.agiletv.responsibility4"),
+        t("experience.agiletv.responsibility5"),
+      ],
+      technologies: ["Next.js", "React", "Redux", "Redis", "SSR", "TypeScript"],
+    },
+    {
+      company: "Groope",
+      role: t("experience.groope.role"),
+      period: "Apr 2021 – Apr 2025",
+      location: "Remote",
+      responsibilities: [
+        t("experience.groope.responsibility1"),
+        t("experience.groope.responsibility2"),
+        t("experience.groope.responsibility3"),
+        t("experience.groope.responsibility4"),
+        t("experience.groope.responsibility5"),
+      ],
+      technologies: [
+        "Next.js",
+        "React",
         "Chakra UI",
         "React Query",
         "Zustand",
         "CircleCI",
-        "GCP",
         "TypeScript",
       ],
-      link: "https://groope.app",
-      bgPattern: "/groope.svg",
     },
     {
-      title: "CB Shop",
-      description:
-        "E-commerce platform with advanced features including shopping cart, checkout system, and admin panel. Optimized performance through SSR and lazy loading. Implemented multilingual support using next-intl.",
+      company: "Factree",
+      role: t("experience.factree.role"),
+      period: "2022 – Apr 2025",
+      location: "Remote",
+      responsibilities: [
+        t("experience.factree.responsibility1"),
+        t("experience.factree.responsibility2"),
+        t("experience.factree.responsibility3"),
+      ],
       technologies: [
         "Next.js",
-        "Supabase",
-        "ReactQuery",
-        "Mercado Pago",
-        "Stripe",
+        "Strapi",
+        "Node.js",
+        "Three.js",
+        "Framer Motion",
         "TypeScript",
-        "AWS",
-        "next-intl",
-        "TailwindCSS",
       ],
-      link: "https://www.lojacbshop.com.br",
-      bgPattern: "/cbshop.svg",
-    },
-    {
-      title: "Solarium",
-      description:
-        "Interactive website featuring advanced animations and visual effects. Implemented custom particle systems and smooth transitions for an engaging user experience.",
-      technologies: ["Three.js", "Framer Motion", "React", "TypeScript"],
-      link: "https://www.vitrastudios.com",
-      bgPattern: "/solarium.png",
-    },
-    {
-      title: "BSB Vistos",
-      description:
-        "Landing page development with modern design and CMS integration. Built scalable microservices-based APIs using Strapi CMS for content management.",
-      technologies: ["React", "Strapi CMS", "Node.js", "TailwindCSS"],
-      link: "https://www.bsbvistos.com.br",
-      bgPattern: "/bsbvistos.svg",
     },
   ];
 
   return (
     <section id="projects" className="py-16">
-      <h2 className="text-3xl font-bold mb-8 dark:text-white">My Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
+      <h2 className="text-3xl font-bold mb-8 dark:text-white">
+        {t("projects.title")}
+      </h2>
+      <div className="grid grid-cols-1 gap-6">
+        {experiences.map((experience, index) => (
           <div
             key={index}
-            className="border border-purple-200 dark:border-[#2d2b3b] rounded-lg p-6 hover:shadow-lg transition-shadow bg-white dark:bg-[#13111b]/90 relative overflow-hidden group"
+            className="border border-purple-200 dark:border-[#2d2b3b] rounded-lg p-6 hover:shadow-lg transition-shadow bg-white dark:bg-[#13111b]/90"
           >
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `url("${project.bgPattern}")`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundSize:
-                  project.title === "Groope app" ||
-                  project.title === "BSB Vistos"
-                    ? "200px"
-                    : project.title === "CB Shop" ||
-                      project.title === "Solarium"
-                    ? "150px"
-                    : "auto",
-                opacity: project.title === "CB Shop" ? 0.1 : 0.1,
-              }}
-            />
-            <div className="relative z-10">
-              <h3 className="text-xl font-bold mb-2 dark:text-white">
-                {project.title}
-              </h3>
-              <p className="mb-4 min-h-[150px] text-gray-600 dark:text-gray-300">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+              <div>
+                <h3 className="text-xl font-bold dark:text-white">
+                  {experience.company}
+                </h3>
+                <p className="text-lg text-purple-600 dark:text-purple-400 font-semibold">
+                  {experience.role}
+                </p>
               </div>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 inline-flex items-center"
-              >
-                View Project
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 ml-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
+              <div className="text-sm text-gray-600 dark:text-gray-400 mt-2 md:mt-0 md:text-right">
+                <p>{experience.period}</p>
+                <p>{experience.location}</p>
+              </div>
+            </div>
+
+            <ul className="mb-4 space-y-2">
+              {experience.responsibilities.map((responsibility, i) => (
+                <li
+                  key={i}
+                  className="text-gray-600 dark:text-gray-300 flex items-start"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </a>
+                  <span className="text-purple-500 mr-2 ">•</span>
+                  <span>{responsibility}</span>
+                </li>
+              ))}
+            </ul>
+
+            {experience.achievement && (
+              <div className="mb-4 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                <p className="text-sm font-semibold text-purple-800 dark:text-purple-200 mb-1">
+                  {t("experience.achievementLabel")}:
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  {experience.achievement}
+                </p>
+              </div>
+            )}
+
+            <div className="flex flex-wrap gap-2">
+              {experience.technologies.map((tech, i) => (
+                <span
+                  key={i}
+                  className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
         ))}
